@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>Happy Birthday Jaan 🤍</title>
+<title>For Meri Pyaari Jaan 🤍</title>
 
 <style>
 
@@ -24,66 +20,77 @@ body {
     justify-content: center;
     align-items: center;
     padding: 25px 15px;
-
-    background: linear-gradient(
-        135deg,
-        #e4f6ff,
-        #ffffff,
-        #c7eaff
-    );
-
+    background: linear-gradient(135deg,
+        #bde7ff, #ffffff, #d5efff, #a9dcf8);
     font-family: Georgia, serif;
     overflow-x: hidden;
 }
 
 .card {
-
-    max-width: 440px;
     width: 100%;
-
+    max-width: 450px;
     padding: 35px 25px;
-
-    background: rgba(255,255,255,0.85);
-
-    border-radius: 25px;
-
+    background: rgba(255,255,255,0.78);
+    border: 2px solid white;
+    border-radius: 28px;
     text-align: center;
-
-    box-shadow: 0 10px 35px #8cc9e955;
-
-    border: 1px solid white;
-
+    box-shadow: 0 10px 40px rgba(75,160,210,0.2);
+    position: relative;
+    z-index: 2;
     animation: appear 1.5s ease;
-
 }
 
 @keyframes appear {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(35px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
+.butterfly {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
 h1 {
-    color: #3988b8;
+    color: #3989b9;
     font-size: 27px;
-    margin-bottom: 25px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.line {
+    width: 75px;
+    height: 3px;
+    background: #9bd8f5;
+    margin: 0 auto 25px;
+    border-radius: 10px;
 }
 
 .message {
-    color: #557f9a;
+    color: #557d98;
     font-size: 18px;
-    line-height: 1.9;
+    line-height: 2;
 }
 
 .footer {
+    font-size: 30px;
     margin-top: 25px;
-    font-size: 28px;
+}
+
+.music-btn {
+    margin-top: 25px;
+    padding: 12px 22px;
+    background: #80c8ed;
+    border: none;
+    border-radius: 30px;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
 }
 
 .heart {
@@ -91,39 +98,39 @@ h1 {
     bottom: -30px;
     color: white;
     font-size: 25px;
-    animation: float 8s linear infinite;
     pointer-events: none;
+    animation: float 8s linear forwards;
 }
 
 @keyframes float {
-
     0% {
-        transform: translateY(0);
+        transform: translateY(0) rotate(0deg);
         opacity: 0;
     }
-
     20% {
         opacity: 1;
     }
-
     100% {
-        transform: translateY(-110vh);
+        transform: translateY(-110vh) rotate(360deg);
         opacity: 0;
     }
-
 }
 
 </style>
-
 </head>
 
 <body>
 
 <div class="card">
 
+    <div class="butterfly">🦋 🤍 🦋</div>
+
     <h1>
-        🎉 Happy Birthday Meri Pyaari Jaan 🫂🥰💙
+        🎉 Happy Birthday<br>
+        Meri Pyaari Jaan 🫂🥰💙
     </h1>
+
+    <div class="line"></div>
 
     <div class="message">
 
@@ -140,7 +147,8 @@ h1 {
 
         <br><br>
 
-        Khush rahna and Love you so much meri Jaan 🤍🥰
+        Khush rahna and Love you so much
+        meri Jaan 🤍🥰
 
     </div>
 
@@ -148,7 +156,13 @@ h1 {
         🤍 🦋 🤍
     </div>
 
+    <button class="music-btn" onclick="toggleMusic()">
+        🎹 Play Birthday Music
+    </button>
+
 </div>
+
+<audio id="music" src="music.mp3" loop></audio>
 
 <script>
 
@@ -157,7 +171,7 @@ function createHeart() {
     const heart = document.createElement("div");
 
     heart.className = "heart";
-    heart.innerHTML = "🤍";
+    heart.innerHTML = Math.random() > 0.5 ? "🤍" : "♡";
 
     heart.style.left = Math.random() * 100 + "vw";
 
@@ -168,11 +182,30 @@ function createHeart() {
 
     setTimeout(() => {
         heart.remove();
-    }, 9000);
+    }, 10000);
 
 }
 
-setInterval(createHeart, 500);
+setInterval(createHeart, 600);
+
+async function toggleMusic() {
+
+    const music = document.getElementById("music");
+    const button = document.querySelector(".music-btn");
+
+    if (music.paused) {
+        try {
+            await music.play();
+            button.innerHTML = "⏸ Pause Music";
+        } catch (error) {
+            alert("Please upload music.mp3 to your repository first!");
+        }
+    } else {
+        music.pause();
+        button.innerHTML = "🎹 Play Birthday Music";
+    }
+
+}
 
 </script>
 
