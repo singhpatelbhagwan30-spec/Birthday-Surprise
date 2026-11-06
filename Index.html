@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>A Little Surprise 💙</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Georgia, serif;
+    background: linear-gradient(
+        135deg,
+        #dff4ff,
+        #ffffff,
+        #b9e5ff
+    );
+    overflow: hidden;
+}
+
+.card {
+    text-align: center;
+    background: rgba(255,255,255,0.8);
+    padding: 40px 25px;
+    border-radius: 25px;
+    width: 88%;
+    max-width: 400px;
+    box-shadow: 0 10px 35px #8cc9e955;
+    position: relative;
+    z-index: 2;
+}
+
+h1 {
+    color: #3988b8;
+    margin-bottom: 20px;
+}
+
+p {
+    color: #668da5;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+button {
+    background: #83c9ef;
+    border: none;
+    padding: 16px 25px;
+    border-radius: 30px;
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px #8cc9e9;
+}
+
+button:hover {
+    background: #55aedd;
+}
+
+.heart {
+    position: absolute;
+    bottom: -30px;
+    color: white;
+    font-size: 25px;
+    animation: float 8s linear infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <h1>💙 A Little Surprise For You 💙</h1>
+
+    <p>
+        Someone special has something special
+        waiting for you... 🥰
+    </p>
+
+    <button onclick="location.href='birthday.html'">
+        🎉 Here a surprise for you 💌
+    </button>
+
+</div>
+
+<script>
+
+function createHeart() {
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+    heart.innerHTML = "🤍";
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration =
+        (5 + Math.random() * 5) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 9000);
+}
+
+setInterval(createHeart, 500);
+
+</script>
+
+</body>
+</html>
