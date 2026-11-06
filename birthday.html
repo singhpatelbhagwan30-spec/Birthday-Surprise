@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Jaan 🤍</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 15px;
+
+    background: linear-gradient(
+        135deg,
+        #e4f6ff,
+        #ffffff,
+        #c7eaff
+    );
+
+    font-family: Georgia, serif;
+    overflow-x: hidden;
+}
+
+.card {
+
+    max-width: 440px;
+    width: 100%;
+
+    padding: 35px 25px;
+
+    background: rgba(255,255,255,0.85);
+
+    border-radius: 25px;
+
+    text-align: center;
+
+    box-shadow: 0 10px 35px #8cc9e955;
+
+    border: 1px solid white;
+
+    animation: appear 1.5s ease;
+
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    color: #3988b8;
+    font-size: 27px;
+    margin-bottom: 25px;
+}
+
+.message {
+    color: #557f9a;
+    font-size: 18px;
+    line-height: 1.9;
+}
+
+.footer {
+    margin-top: 25px;
+    font-size: 28px;
+}
+
+.heart {
+    position: fixed;
+    bottom: -30px;
+    color: white;
+    font-size: 25px;
+    animation: float 8s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes float {
+
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-110vh);
+        opacity: 0;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+    <h1>
+        🎉 Happy Birthday Meri Pyaari Jaan 🫂🥰💙
+    </h1>
+
+    <div class="message">
+
+        Thank you so much for being in my life
+        and making it so special 🥰
+
+        <br><br>
+
+        I thank Satguru, who sent you in my life. ❤️
+
+        <br><br>
+
+        Satguru ji Bless you aur apna din enjoy karna!!
+
+        <br><br>
+
+        Khush rahna and Love you so much meri Jaan 🤍🥰
+
+    </div>
+
+    <div class="footer">
+        🤍 🦋 🤍
+    </div>
+
+</div>
+
+<script>
+
+function createHeart() {
+
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+    heart.innerHTML = "🤍";
+
+    heart.style.left = Math.random() * 100 + "vw";
+
+    heart.style.animationDuration =
+        (5 + Math.random() * 5) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 9000);
+
+}
+
+setInterval(createHeart, 500);
+
+</script>
+
+</body>
+</html>
